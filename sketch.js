@@ -29,6 +29,7 @@ function draw() {
 	  rotate(PI / c);
 	}
 	pop();
+	console.log(minute());
 
 	push();
 	fill(75, 50, 45, 150);
