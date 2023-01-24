@@ -2,7 +2,15 @@ function setup() {
 	createCanvas(800, 800);
   }
   
+let min = 0;
+
 function draw() {
+	
+
+	if(min < minute()){
+		min = minute();
+		console.log(min);
+	}
 
 	background(247, 250, 245);
 
@@ -29,7 +37,6 @@ function draw() {
 	  rotate(PI / c);
 	}
 	pop();
-	console.log(minute());
 
 	push();
 	fill(75, 50, 45, 150);
