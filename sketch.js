@@ -17,7 +17,6 @@ function draw() {
 	push();
 	fill(230, 24, 170, 100);
 	translate(400, 400);
-	//noStroke();
 	rotate(radians(frameCount / -50));
 	for (var r1 = 0; r1 < hour(); r1++) {
 	  ellipse(10, 260, 85, 200);
@@ -29,7 +28,6 @@ function draw() {
 	push();
 	fill(245, 180, 25, 125);
 	translate(400, 400);
-	noStroke();
 	rotate(radians(frameCount / 50));
 	for (var r1 = 0; r1 < minute(); r1++) {
 	  ellipse(-10, 145, 24, 100);
@@ -41,7 +39,6 @@ function draw() {
 	push();
 	fill(75, 50, 45, 150);
 	translate(400, 400);
-	noStroke();
 	rotate(radians(frameCount / -75));
 	for (var r1 = 0; r1 < second(); r1++) {
 	  ellipse(-5, 70, 10, 20);
