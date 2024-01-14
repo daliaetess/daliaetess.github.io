@@ -15,6 +15,14 @@ function draw() {
 	background(247, 250, 245);
 
 	push();
+	beginShape();
+	vertex(30, 20);
+	bezierVertex(80, 0, 80, 75, 30, 75);
+	bezierVertex(50, 80, 60, 25, 30, 20);
+	endShape();
+	pop();
+	/*
+	push();
 	fill(230, 24, 170, 100);
 	translate(400, 400);
 	rotate(radians(frameCount / -50));
@@ -45,6 +53,6 @@ function draw() {
 	  let a = second()/2
 	  rotate(PI / a);
 	}
-	pop();
+	pop()*/
 
   }
