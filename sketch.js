@@ -17,7 +17,7 @@ function draw() {
 	push();
 	fill(230, 24, 170, 100);
 	translate(400, 400);
-	noStroke();
+	//noStroke();
 	rotate(radians(frameCount / -50));
 	for (var r1 = 0; r1 < hour(); r1++) {
 	  ellipse(10, 260, 85, 200);
