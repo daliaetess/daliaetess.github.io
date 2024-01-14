@@ -20,7 +20,7 @@ function draw() {
 	noStroke();
 	rotate(radians(frameCount / -50));
 	for (var r1 = 0; r1 < hour(); r1++) {
-	  ellipse(10, 260, 85, 150);
+	  ellipse(10, 260, 85, 200);
 	  let d = hour()/2
 	  rotate(PI / d);
 	}
