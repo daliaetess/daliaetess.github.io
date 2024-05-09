@@ -1,13 +1,312 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Clock</title>
-    <style> body {padding: 0; margin: 0;} </style>
-    <script src="p5.min.js"></script>
-    <script src="sketch.js"></script>
-  </head>
-  <body>
-  </body>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Campus Safety</title>
+	<meta name="description" content="Columbia Campus Safety" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="./style.css" />
+	<style>
+        .scrolly {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            background-color: #f3f3f3;
+            padding: 1rem;
+		}
+		#scrolly {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            background-color: #f3f3f3;
+            padding: 1rem;
+		}
+
+        #scrolly0 {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            background-color: #f3f3f3;
+		}
+
+        .side {
+            max-width: 20rem;
+        }
+
+        #scrolly > * {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+
+		article {
+            margin: auto;
+			position: relative;
+			padding: 0 1rem;
+            max-width: 50rem;
+		}
+
+        figure {
+            position: -webkit-sticky;
+            position: sticky;
+            width: 100%;
+            margin: 0;
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            /*background-color: #8a8a8a;*/
+            z-index: 0;
+        }
+
+        figure p{
+            text-align: center;
+            padding: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            font-size: 10rem;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .step {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            margin: 5rem auto 10rem auto;
+            background-color: #3b3b3b;
+            color: #fff;
+            height: 500px
+        }
+
+        .step:last-child {
+            margin-bottom: 5rem;
+        }
+
+		.step.is-active {
+			background-color: rgb(232, 207, 143);
+			color: #3b3b3b;
+		}
+
+		.step p {
+			text-align: center;
+			padding: .5rem;
+			font-size: 1rem;
+		}
+
+        .step h3 {
+			text-align: center;
+			padding: .5rem;
+			font-size: 1.25rem;
+		}
+
+        .step h2 {
+			text-align: center;
+			padding: .5rem;
+			font-size: 2rem;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<section id="intro">
+			<h1 class="intro__hed">Mapping Columbia University's Campus Safety</h1>
+            <p>Pedestrian safety is a serious concern for students, especially those taking night classes and commuting long distances from campus to their residence. Knowledge of security incidents helps students stay informed and avoid crime hot-spots. Columbia’s existing safety infrastructure includes the Clery reporting system, which notifies students when a crime occurs in the campus area. However, from 2019 to 2023, Columbia only notified students of 145 crimes. This system selectively reports crime and paints an incomplete picture of campus safety. We supplement Clery data with NYPD data from the same time period, enabling students to visually identify streets with high and low crime frequencies. They can use this information to inform their travel paths and heighten their awareness. We also map emergency call booths to ensure that, in the event of a crime, students know where to go for emergency assistance.
+            </br></p>
+			<p class="intro__dek">
+            </br>Start scrolling to learn more.
+			</p>
+		</section>
+
+        <section id="scrolly0">
+            <article padding="0 1rem" margin="auto" width="33%"">
+                <div class="step" style="height: 750px" data-step="1">
+                    <h2>Crimes Reported Around Columbia</h2>
+                    <p>While there were 8156 crimes committed in the campus area, only 145 were reported to students through the Clery System.</p>
+                    <h3>Hover over bars to see the breakdown of types NYPD and Clery reported crimes</h3>
+                    <div id="observablehq-crime_chart2-146548cb"></div>
+                </div>
+				<div class="step" style="height: 375px" data-step="2">
+                    <h2>At what times of day does crime concern you?</h2>
+                    <p>(time is shown in military time hours)</p>
+					<p>
+                        <div id="observablehq-text-5158a0e0"></div>
+                        <div id="observablehq-viewof-time-5158a0e0"></div>
+                        <div id="observablehq-timeChoice-5158a0e0"></div>
+                    </p>
+				</div>
+                <div class="step" style="height: 375px" data-step="3">
+                    <h2>What types of crime are you worried about?</h2>
+                    <p></p>
+					<p>
+                        <div id="observablehq-textTwo-5158a0e0"></div>
+                        <div id="observablehq-viewof-options2-5158a0e0"></div>
+                    </p>
+				</div>
+
+            </article>
+        </section>
+
+		<section id="scrolly">
+
+			<article class="side">
+				<div class="step" style="margin: 0rem auto 0rem auto;" data-step="4">
+                    <h2>Choose a common path to view crimes along the route</h2>
+                    <div id="observablehq-viewof-paths-5158a0e0"></div>
+			</article>
+            </div>
+                <div class="figure">
+                <div id="observablehq-map7-5158a0e0"></div>
+            </div>
+
+
+
+		</section>
+        
+		<section id="outro"></section>
+	</main>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/6e285fee10af69af@348.js?v=4";
+    new Runtime().module(define, name => {
+      if (name === "crime_chart2") return new Inspector(document.querySelector("#observablehq-crime_chart2-146548cb"));
+    });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/466ecaaf9a8b7cb7@934.js?v=4";
+    new Runtime().module(define, name => {
+      if (name === "text") return new Inspector(document.querySelector("#observablehq-text-5158a0e0"));
+      if (name === "viewof time") return new Inspector(document.querySelector("#observablehq-viewof-time-5158a0e0"));
+      if (name === "timeChoice") return new Inspector(document.querySelector("#observablehq-timeChoice-5158a0e0"));
+      if (name === "textTwo") return new Inspector(document.querySelector("#observablehq-textTwo-5158a0e0"));
+      if (name === "viewof options2") return new Inspector(document.querySelector("#observablehq-viewof-options2-5158a0e0"));
+      if (name === "viewof paths") return new Inspector(document.querySelector("#observablehq-viewof-paths-5158a0e0"));
+      if (name === "map7") return new Inspector(document.querySelector("#observablehq-map7-5158a0e0"));
+      return ["startTime1","endTime1","map6","map","handleRouteSelection"].includes(name);
+    });
+    </script>
+
+    <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="./stickyfill.min.js"></script>
+	<script src="./scrollama.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+	<script type="module">
+        var main = d3.select("main");
+		//var scrolly = document.querySelector("#scrolly");
+        //var figure = scrolly.querySelector(".figure");
+		//var article = scrolly.querySelector("article");
+		//var steps = article.querySelectorAll(".step");
+
+        var scrolly0 = document.querySelector("#scrolly0");
+        var article0 = scrolly0.querySelector("article");
+        var steps = article0.querySelectorAll(".step");
+        var figure = scrolly0.querySelector(".figure");
+        //steps = Array.from(steps).concat(Array.from(newSteps));
+        
+
+		// initialize the scrollama
+		var scroller = scrollama();
+
+        // generic window resize listener event
+        function handleResize() {
+            // 1. update height of step elements
+            /*steps.forEach(function(step) {
+                var stepH = Math.floor(window.innerHeight * 0.75);
+                step.style.height = stepH + "px";
+            });*/
+
+            var figureHeight = window.innerHeight / 2;
+            var figureMarginTop = (window.innerHeight - figureHeight) / 2;
+            var figureSelection = d3.select(figure);
+
+            // Then apply D3.js style methods
+            figureSelection.style("height", figureHeight + "px")
+            .style("top", figureMarginTop + "px");
+
+            // 3. tell scrollama to update new element dimensions
+            scroller.resize();
+        }
+
+        //window.addEventListener("resize", handleResize);
+
+		// scrollama event handlers
+		function handleStepEnter(response) {
+            // console.log(response);
+            // response = { element, direction, index }
+
+                // Remove "is-active" class from all steps
+            steps.forEach(function(step) {
+                step.classList.remove("is-active");
+            });
+
+            // Add "is-active" class to the current step
+            steps[response.index].classList.add("is-active");
+
+            // update graphic based on step
+            //figure.select("p").text(response.index + 1);
+        }
+
+        function setupStickyfill() {
+            d3.selectAll(".sticky").each(function() {
+            Stickyfill.add(this);
+            });
+        }
+
+		function handleStepExit(response) {
+			// response = { element, direction, index }
+			// console.log(response);
+			// remove color from current step
+			response.element.classList.remove("is-active");
+		}
+
+		function init() {
+            setupStickyfill();
+            handleResize();
+
+			// set random padding for different step heights (not required)
+			/*step.forEach(function (step) {
+				var v = 100 + Math.floor((Math.random() * window.innerHeight) / 4);
+				step.style.padding = v + "px 0px";
+			});*/
+
+			// 1. setup the scroller with the bare-bones options
+			// 		this will also initialize trigger observations
+			// 2. bind scrollama event handlers (this can be chained like below)
+			scroller
+				.setup({
+					step: "#scrolly0 article .step",
+                    //step: "#scrolly0 article .step",
+					debug: false,
+					offset: 0.5
+				})
+				.onStepEnter(handleStepEnter)
+                .onStepExit(handleStepExit);
+
+            window.addEventListener("resize", handleResize);
+
+		}
+
+		// kick things off
+		init();
+	</script>
+
+        
+</body>
+
 </html>
